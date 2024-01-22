@@ -42,15 +42,16 @@ The minimum support is 3. So, the frequent itemsets are:
 python apriori.py
 
 Apriori Algorithm
-```json
+```python
 1-itemsets: {'Milk': 5, 'Onion': 5, 'Kidney Beans': 13, 'Eggs': 6, 'Yogurt': 3, 'Apple': 7, 'Corn': 4, 'Ice cream': 3}
 Frequent Itemsets: {('Milk', 'Onion'): 1,
- ('Kidney Beans', 'Milk'): 5,
-  ('Eggs', 'Milk'): 4,
-   ('Milk', 'Yogurt'): 2,
-    ('Kidney Beans', 'Onion'): 3, ('Eggs', 'Onion'): 3,
-     ('Onion', 'Yogurt'): 2,
-      ('Eggs', 'Kidney Beans'): 5, ('Kidney Beans', 'Yogurt'): 2, ('Eggs', 'Yogurt'): 2, 
+
+('Kidney Beans', 'Milk'): 5,
+('Eggs', 'Milk'): 4,
+('Milk', 'Yogurt'): 2,
+('Kidney Beans', 'Onion'): 3, ('Eggs', 'Onion'): 3,
+('Onion', 'Yogurt'): 2,
+('Eggs', 'Kidney Beans'): 5, ('Kidney Beans', 'Yogurt'): 2, ('Eggs', 'Yogurt'): 2, 
       ('Apple', 'Milk'): 3, 
       ('Apple', 'Kidney Beans'): 7, ('Apple', 'Eggs'): 3,
        ('Corn', 'Milk'): 1,
