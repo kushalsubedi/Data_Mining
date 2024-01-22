@@ -27,27 +27,35 @@ def get_item(Data:List[List])->Dict[str, int]:
     item_map2 = {}
     for transaction in Data:
         for item in transaction:
-            if item.lower() in item_map:
-                item_map[item.lower()] += 1
+            if item in item_map:
+                item_map[item] += 1
             else:
-                item_map[item.lower()] = 1
+                item_map[item] = 1
     for item, count in item_map.items():
         if int(count) >=  MIN_SUPPORT_COUNT:
             item_map2[item] = count 
     return item_map2
 
-print(get_item(DATA))
+#print(get_item(DATA))
 
 def frequent_itemset (get_item:Dict[str, int],data:List[List])->Dict[Tuple[str], int]:
     frequent_itemset = []
     for i in range(2, 3):
         frequent_itemset.extend(set(itertools.combinations(get_item.keys(), i)))
    
-    print(frequent_itemset )
+    #print(frequent_itemset )
     occurrence = {} 
     for itemset in frequent_itemset:
         support_count = sum(1 for transaction in DATA if set(itemset).issubset(transaction))
         if support_count >= MIN_SUPPORT_COUNT:
             occurrence[itemset] = support_count
     return occurrence
-print(frequent_itemset(get_item(DATA),DATA))
+
+
+
+for itemset, support_count in frequent_itemset(get_item(DATA), DATA).items():
+    print(f"{itemset} = {support_count}")
+ 
+  
+def apriori():
+    pass
