@@ -67,6 +67,7 @@ Frequent Itemsets: {('Milk', 'Onion'): 1,
           ('Apple', 'Eggs', 'Milk'): 3, ('Apple', 'Eggs', 'Kidney Beans'): 3,
            ('Apple', 'Eggs', 'Kidney Beans', 'Milk'): 3}
 ```
+output of the code
 
 Association Rules:
 Eggs, Kidney Beans => Milk (Confidence: 0.80)
