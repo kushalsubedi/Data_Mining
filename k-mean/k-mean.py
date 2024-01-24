@@ -10,10 +10,9 @@ CLUSTER2 = []
 
 
 def cluster_center(C: Tuple) -> Tuple:
-    x = sum(x[0] for x in C) / len(C)
-    y = sum(x[1] for x in C) / len(C)
-    return (x, y)
-
+    x, y = zip(*C)
+    return sum(x) / len(x), sum(y) / len(y) 
+       
 
 def distance(x1, y1, C: Tuple) -> float:
     x2, y2 = C
