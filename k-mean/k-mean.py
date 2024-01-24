@@ -2,7 +2,7 @@ from typing import List, Tuple
 import matplotlib.pyplot as plt 
 import random
 AGE = [22, 23, 25, 27, 28, 29, 30, 31, 33, 35, 37, 39, 40, 41, 42, 43, 44, 45, 46]
-WEIGHT = [50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68]
+WEIGHT = [50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 70, 71, 72, 73, 74, 75, 76, 77, 78]
 
 CLUSTER = 2
 CLUSTER1 = []
@@ -21,7 +21,7 @@ def distance(x1, y1, C: Tuple) -> float:
 
 
 def check_center(X: List, Y: List, cluster_center1: Tuple, cluster_center2: Tuple):
-    global CLUSTER1, CLUSTER2  # Use global keyword to modify global variables
+    global CLUSTER1, CLUSTER2  # Using global keyword to modify global variables
     for i in range(len(X)):
         if distance(X[i], Y[i], cluster_center1) < distance(X[i], Y[i], cluster_center2):
             CLUSTER1.append((X[i], Y[i]))
@@ -43,11 +43,6 @@ def k_mean(AGE, WEIGHT, k):
 
     return cluster_center1, cluster_center2
 
-def plot_cluster(cluster_center1, cluster_center2):
-    plt.scatter(AGE, WEIGHT)
-    plt.scatter(cluster_center1[0], cluster_center1[1])
-    plt.scatter(cluster_center2[0], cluster_center2[1])
-    plt.show()
 if __name__ == "__main__":
     cluster_center1, cluster_center2 = k_mean(AGE, WEIGHT, CLUSTER)
     predict = (40, 60)
@@ -55,6 +50,16 @@ if __name__ == "__main__":
         print("Predicted cluster: ", predict, "is in cluster 1")
     else:
         print("Predicted cluster: ", predict, "is in cluster 2")
+    cluster1_x, cluster1_y = zip(*CLUSTER1)
+    cluster2_x, cluster2_y = zip(*CLUSTER2)
     print(cluster_center1, cluster_center2)
-    plot_cluster(cluster_center1, cluster_center2)
+    plt.scatter(cluster1_x, cluster1_y, color='blue', label='Cluster 1', alpha=0.5)
+    plt.scatter(cluster2_x, cluster2_y, color='red', label='Cluster 2', alpha=0.5)
+    plt.scatter(*cluster_center1, color='blue', marker='x', s=200, label='Cluster 1 Center')
+    plt.scatter(*cluster_center2, color='red', marker='x', s=200, label='Cluster 2 Center')
+    plt.title('K-Mean')
+    plt.xlabel('AGE')
+    plt.ylabel('WEIGHT')
+    plt.legend()
+    plt.show()
 
