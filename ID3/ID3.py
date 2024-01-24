@@ -89,7 +89,6 @@ def visualize_tree(node, dot, parent_name=None, edge_label=None):
             visualize_tree(child_node, dot, parent_name=str(node.feature), edge_label=str(value))
 
 
-# Example usage:
 data = np.array([[1, 'Sunny', 'Hot', 'High', False],
                  [2, 'Sunny', 'Hot', 'High', True],
                  [3, 'Overcast', 'Hot', 'High', False],
@@ -107,7 +106,7 @@ data = np.array([[1, 'Sunny', 'Hot', 'High', False],
 
 target = np.array(['No', 'No', 'Yes', 'Yes', 'Yes', 'No', 'Yes', 'No', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'No'])
 
-features = [1, 2, 3, 4]  # indices of features in the dataset
+features = [1, 2, 3, 4]  # [Outlook, Temperature, Humidity, Wind]
 
 root = id3(data, target, features)
 sample = [1, 'Sunny', 'Hot', 'Normal', False]
