@@ -1,0 +1,18 @@
+// Decision Tree
+digraph {
+	1 [label="Feature 1"]
+	1 -> None [label=Overcast]
+	None [label="Feature None"]
+	1 -> 4 [label=Rain]
+	4 [label="Feature 4"]
+	4 -> None [label=Rain]
+	None [label="Feature None"]
+	4 -> None [label=Rain]
+	None [label="Feature None"]
+	1 -> 3 [label=Sunny]
+	3 [label="Feature 3"]
+	3 -> None [label=Sunny]
+	None [label="Feature None"]
+	3 -> None [label=Sunny]
+	None [label="Feature None"]
+}
